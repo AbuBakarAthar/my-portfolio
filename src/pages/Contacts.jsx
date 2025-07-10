@@ -1,60 +1,123 @@
 import { motion } from "framer-motion";
 import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube, FaWhatsapp, FaGithub, FaTiktok, FaBehance } from "react-icons/fa";
 
- function Contacts
- () {
+const socialLinks = [
+  { icon: FaFacebook, color: "hover:text-blue-500", name: "Facebook" },
+  { icon: FaInstagram, color: "hover:text-pink-500", name: "Instagram" },
+  { icon: FaLinkedin, color: "hover:text-blue-400", name: "LinkedIn" },
+  { icon: FaYoutube, color: "hover:text-red-500", name: "YouTube" },
+  { icon: FaWhatsapp, color: "hover:text-green-500", name: "WhatsApp" },
+  { icon: FaGithub, color: "hover:text-gray-300", name: "GitHub" },
+  { icon: FaTiktok, color: "hover:text-black hover:bg-gradient-to-r hover:from-pink-500 hover:to-blue-500", name: "TikTok" },
+  { icon: FaBehance, color: "hover:text-blue-600", name: "Behance" },
+];
+
+function Contacts() {
   return (
-    <section className="bg-gradient-to-b from-[#1A0531] to-[#0A011A] text-white py-16 px-6 flex flex-col items-center">
-      {/* Title Section */}
-      <motion.h2
-        className="text-4xl font-bold"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        Get in Touch
-      </motion.h2>
-      <p className="text-gray-400 mt-2">If you want to avail my services you can contact me at the links below.</p>
-
-      {/* Contact Card */}
-      <motion.div
-        className="mt-10 bg-gray-900/80 backdrop-blur-lg shadow-lg rounded-2xl p-8 w-full max-w-2xl text-center"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <h3 className="text-2xl font-semibold">Let’s try my service now!</h3>
-        <p className="text-gray-400 mt-2">Let’s work together and make everything super cute and super useful.</p>
-
-        {/* Get Started Button */}
-        <motion.a
-          href="#"
-          className="mt-4 inline-block bg-blue-400 hover:bg-blue-500 text-black font-semibold px-6 py-2 rounded-full shadow-md transition"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+    <section className="bg-gray-900 text-white py-16 px-4 sm:px-6 md:px-16 lg:px-24">
+      <div className="max-w-7xl mx-auto flex flex-col items-center">
+        {/* Title Section */}
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
         >
-          Get Started
-        </motion.a>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            Get in Touch
+          </motion.h2>
+          <motion.p
+            className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            Connect with me through these platforms to discuss your project or inquire about my services.
+          </motion.p>
+        </motion.div>
 
-        {/* Divider Line */}
-        <div className="mt-6 border-t border-gray-600"></div>
-
-        {/* Social Links */}
-        <h3 className="mt-6 text-xl font-semibold">Social Links</h3>
-        <div className="flex justify-center space-x-4 mt-4">
-          {[FaFacebook, FaInstagram, FaLinkedin, FaYoutube, FaWhatsapp, FaGithub, FaTiktok, FaBehance].map((Icon, index) => (
-            <motion.a
-              key={index}
-              href="#"
-              className="text-gray-400 hover:text-white text-2xl transition"
-              whileHover={{ scale: 1.2 }}
+        {/* Contact Card */}
+        <motion.div
+          className="w-full max-w-3xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-6 sm:p-8 shadow-xl"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          whileHover={{ y: -5 }}
+        >
+          <div className="text-center">
+            <motion.h3
+              className="text-2xl sm:text-3xl font-semibold mb-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
             >
-              <Icon />
+              Let's Work Together!
+            </motion.h3>
+            <motion.p
+              className="text-gray-300 mb-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.0 }}
+            >
+              I'm ready to bring your ideas to life with professional digital solutions.
+            </motion.p>
+
+            {/* Get Started Button */}
+            <motion.a
+              href="#"
+              className="inline-block bg-gradient-to-r from-green-500 to-green-600 text-white font-medium px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2 }}
+            >
+              Get Started
             </motion.a>
-          ))}
-        </div>
-      </motion.div>
+
+            {/* Divider */}
+            <motion.div
+              className="my-8 border-t border-gray-700"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.5, delay: 1.4 }}
+            />
+
+            {/* Social Links */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.6 }}
+            >
+              <h4 className="text-lg font-medium mb-4">Connect With Me</h4>
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={index}
+                    href="#"
+                    className={`text-gray-400 text-2xl p-2 rounded-full transition-colors ${social.color}`}
+                    whileHover={{ y: -3 }}
+                    whileTap={{ scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 1.8 + index * 0.1 }}
+                    aria-label={social.name}
+                  >
+                    <social.icon />
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }
-export default  Contacts;
+
+export default Contacts;

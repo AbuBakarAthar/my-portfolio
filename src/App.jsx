@@ -6,6 +6,8 @@ import ServicesSection from './pages/Services'
 import ProjectsSection from './pages/Projects'
 import Contacts from './pages/Contacts'
 import Navbar from './pages/Navbar'
+import AboutMe from './pages/Abouts'
+import SkillsExperience from './pages/Skill'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,6 +16,8 @@ function App() {
     <>
      <Header />
      <HeroSection />
+     <AboutMe />
+     <SkillsExperience />
      <ServicesSection />
      <ProjectsSection />
      <Contacts/>

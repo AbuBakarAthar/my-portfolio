@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
     <nav className="bg-gray-900 text-white py-4 px-8 flex justify-between items-center">
       {/* Logo */}
       <div className="text-2xl font-bold">
-        Luke<span className="text-green-500">.</span>
+        Abu Bakar<span className="text-green-500">.</span>
       </div>
 
       {/* Navigation Links */}
