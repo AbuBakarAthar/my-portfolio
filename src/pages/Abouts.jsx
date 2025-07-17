@@ -41,7 +41,7 @@ export default function AboutMe() {
             className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight"
             variants={itemVariant}
           >
-            Professional <span className="text-green-500">Problem Solutions</span> For
+            Professional <span className="text-green-500">Problem Solution</span> For
             <br className="hidden sm:block" /> Business Development
           </motion.h1>
           
