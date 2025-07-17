@@ -88,7 +88,7 @@ export default function AboutMe() {
               <div>
                 <p className="text-xs text-gray-400">Email Us</p>
                 <p className="font-medium text-green-400 text-sm sm:text-base">
-                  info@usamaabubakar.com
+                  abubakaroffical123@gmail.com
                 </p>
               </div>
             </motion.div>
