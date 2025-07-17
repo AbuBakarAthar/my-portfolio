@@ -104,7 +104,7 @@ export default function AboutMe() {
               <div>
                 <p className="text-xs text-gray-400">Make A Call</p>
                 <p className="font-medium text-green-400 text-sm sm:text-base">
-                  +92 310 412 2412
+                  +92 309 850 6598
                 </p>
               </div>
             </motion.div>
