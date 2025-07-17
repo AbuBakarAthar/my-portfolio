@@ -84,15 +84,15 @@ function Footer() {
           >
             <div className="flex items-center justify-center gap-3">
               <FaEnvelope className="text-green-400 text-xl" />
-              <span>hello@example.com</span>
+              <span>abubakaroffical123@gmail.com</span>
             </div>
             <div className="flex items-center justify-center gap-3">
               <FaPhone className="text-green-400 text-xl" />
-              <span>+1 (123) 456-7890</span>
+              <span>+92 (3) 0985-06598</span>
             </div>
             <div className="flex items-center justify-center gap-3">
               <FaMapMarkerAlt className="text-green-400 text-xl" />
-              <span>San Francisco, CA</span>
+              <span>Lahore, Pakistan</span>
             </div>
           </motion.div>
         </motion.div>
