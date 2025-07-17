@@ -1,8 +1,17 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa";
- function Navbar() {
+
+function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const menuItems = [
+    "Home",
+    "Services",
+    "Resume",
+    "Work",
+    "Contact",
+  ];
 
   return (
     <motion.nav
@@ -13,7 +22,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
     >
       {/* Logo */}
       <motion.a
-        href="#"
+        href="#home"
         className="text-2xl font-bold text-blue-400"
         whileHover={{ scale: 1.1 }}
       >
@@ -22,7 +31,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 
       {/* Desktop Menu */}
       <div className="hidden md:flex space-x-8 text-gray-300">
-        {["Home", "About", "Services", "Portfolio", "Contact"].map((item, index) => (
+        {menuItems.map((item, index) => (
           <motion.a
             key={index}
             href={`#${item.toLowerCase()}`}
@@ -47,8 +56,13 @@ import { FaBars, FaTimes } from "react-icons/fa";
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
         >
-          {["Home", "About", "Services", "Portfolio", "Contact"].map((item, index) => (
-            <a key={index} href={`#${item.toLowerCase()}`} className="text-lg hover:text-blue-400 transition">
+          {menuItems.map((item, index) => (
+            <a
+              key={index}
+              href={`#${item.toLowerCase()}`}
+              className="text-lg hover:text-blue-400 transition"
+              onClick={() => setIsOpen(false)}
+            >
               {item}
             </a>
           ))}
@@ -57,4 +71,5 @@ import { FaBars, FaTimes } from "react-icons/fa";
     </motion.nav>
   );
 }
+
 export default Navbar;
