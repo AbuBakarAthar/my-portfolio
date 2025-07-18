@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube, FaWhatsapp, FaGithub, FaTiktok, FaBehance } from "react-icons/fa";
 
 const socialLinks = [
-  { icon: FaFacebook, color: "hover:text-blue-500", name: "Facebook" },
+  { icon: FaFacebook, color: "hover:text-blue-500", name: "Facebook"  },
   { icon: FaInstagram, color: "hover:text-pink-500", name: "Instagram" },
   { icon: FaLinkedin, color: "hover:text-blue-400", name: "LinkedIn" },
   { icon: FaYoutube, color: "hover:text-red-500", name: "YouTube" },

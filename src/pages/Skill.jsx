@@ -10,7 +10,10 @@ import {
   FaGlassCheers,
   FaRobot,
   FaLaptopHouse,
-  FaHandshake // Using as substitute for Fiverr
+  FaHandshake,
+  FaUsers,
+  FaProjectDiagram,
+  FaCalendarCheck
 } from "react-icons/fa";
 import { SiUpwork, SiFreelancer, SiWellfound } from "react-icons/si";
 
@@ -18,11 +21,14 @@ const skills = [
   { name: "Upwork", level: "99%", icon: <SiUpwork size={32} className="text-green-400" /> },
   { name: "Freelancer", level: "80%", icon: <SiFreelancer size={32} className="text-green-400" /> },
   { name: "LinkedIn", level: "84%", icon: <FaLinkedin size={32} className="text-green-400" /> },
-  { name: "Fiverr", level: "95%", icon: <FaHandshake size={32} className="text-green-400" /> }, // Using handshake as substitute
-  { name: "GlassDoor", level: "84%", icon: <FaGlassCheers size={32} className="text-green-400" /> },
-  { name: "Wellfound", level: "90%", icon: <SiWellfound size={32} className="text-green-400" /> },
-  { name: "AI", level: "95%", icon: <FaRobot size={32} className="text-green-400" /> },
-  { name: "Remote Jobs", level: "88%", icon: <FaLaptopHouse size={32} className="text-green-400" /> },
+  { name: "Fiverr", level: "95%", icon: <FaHandshake size={32} className="text-green-400" /> },
+
+]
+const businessSkills = [
+  { name: "Business Development", level: "Expert", icon: <FaBullhorn size={32} className="text-green-400" /> },
+  { name: "Project Management", level: "Advanced", icon: <FaProjectDiagram size={32} className="text-green-400" /> },
+  { name: "Team Leadership", level: "Expert", icon: <FaUsers size={32} className="text-green-400" /> },
+  { name: "Event Organizer", level: "Pro", icon: <FaCalendarCheck size={32} className="text-green-400" /> },
 ];
 
 export default function SkillsExperience() {
@@ -97,33 +103,78 @@ export default function SkillsExperience() {
             className="text-gray-300 mt-4 mb-6 text-base sm:text-lg max-w-2xl"
             variants={itemVariants}
           >
-            Comprehensive expertise across all major freelancing platforms
-            including Upwork, Freelancer, LinkedIn, Fiverr, and remote job
-            platforms like GlassDoor and WellFound.
+            I have hands-on experience in freelancing platforms, business
+            development, project management, and organizing impactful tech
+            events — empowering people and solving real-world problems.
           </motion.p>
 
           <motion.button
-  className="mt-6 bg-green-500 hover:bg-green-600 text-black px-6 py-3 rounded-full flex items-center gap-2 font-medium transition-all duration-300"
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }}
-  variants={itemVariants}
-  onClick={() => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  }}
->
-  Contact <ArrowRight size={18} />
-</motion.button>
-
+            className="mt-6 bg-green-500 hover:bg-green-600 text-black px-6 py-3 rounded-full flex items-center gap-2 font-medium transition-all duration-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            variants={itemVariants}
+            onClick={() => {
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            Contact <ArrowRight size={18} />
+          </motion.button>
         </motion.div>
 
-        {/* Skills Grid */}
+        {/* Freelancing Skills Grid */}
+        <motion.h3
+          className="text-xl sm:text-2xl font-semibold mb-4 text-green-400"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={itemVariants}
+        >
+          Freelancing Platforms
+        </motion.h3>
+
+        <motion.div
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 mb-12"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={containerVariants}
+        >
+          {skills.map((skill, i) => (
+            <motion.div
+              key={i}
+              className="bg-gray-800/50 hover:bg-gray-800 p-4 sm:p-5 rounded-lg flex flex-col items-center text-center border border-gray-700 hover:border-green-500/30 transition-all duration-300"
+              whileHover={{ y: -5 }}
+              custom={i}
+              variants={skillItemVariants}
+            >
+              <div className="mb-3">
+                {skill.icon}
+              </div>
+              <h3 className="font-medium text-white mb-2 text-sm sm:text-base">
+                {skill.name}
+              </h3>
+              <div className="bg-black/70 text-green-400 px-3 py-1 rounded-full font-bold text-xs sm:text-sm">
+                {skill.level}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Business & Management Skills */}
+        <motion.h3
+          className="text-xl sm:text-2xl font-semibold mb-4 text-green-400"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={itemVariants}
+        >
+          Business & Management
+        </motion.h3>
+
         <motion.div
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containerVariants}
         >
-          {skills.map((skill, i) => (
+          {businessSkills.map((skill, i) => (
             <motion.div
               key={i}
               className="bg-gray-800/50 hover:bg-gray-800 p-4 sm:p-5 rounded-lg flex flex-col items-center text-center border border-gray-700 hover:border-green-500/30 transition-all duration-300"

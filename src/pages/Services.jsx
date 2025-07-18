@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Tilt from "react-parallax-tilt";
 import {
   FaLaptopCode,
@@ -25,7 +25,7 @@ const services = [
       { name: "Node.js Backends", icon: <FaLaptopCode className="text-green-400" /> },
       { name: "UI/UX Design", icon: <FaPaintBrush className="text-pink-400" /> }
     ],
-    color: "from-green-500 to-emerald-500"
+    color: "from-green-400 to-green-600"
   },
   {
     title: "Digital Marketing",
@@ -37,7 +37,7 @@ const services = [
       { name: "Video Marketing", icon: <FaVideo className="text-red-400" /> },
       { name: "SEO Optimization", icon: <FaChartLine className="text-green-400" /> }
     ],
-    color: "from-blue-500 to-cyan-500"
+    color: "from-blue-400 to-blue-600"
   },
   {
     title: "AI Solutions",
@@ -49,7 +49,7 @@ const services = [
       { name: "Data Analysis", icon: <FaChartLine className="text-green-400" /> },
       { name: "Process Automation", icon: <FaLaptopCode className="text-red-400" /> }
     ],
-    color: "from-purple-500 to-violet-500"
+    color: "from-purple-400 to-violet-600"
   }
 ];
 
@@ -88,12 +88,18 @@ const skillItemVariants = {
   })
 };
 
+const scrollToServices = () => {
+  const target = document.getElementById("services");
+  if (target) {
+    target.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
 const ServicesSection = () => (
   <section
     id="services"
     className="relative bg-gray-900 text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
   >
-    {/* Background Blurred Circles (From Skills Component) */}
     <motion.div
       className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none z-0"
       initial={{ opacity: 0 }}
@@ -114,15 +120,13 @@ const ServicesSection = () => (
       ))}
     </motion.div>
 
-    {/* Header */}
     <motion.div
       className="text-center mb-16 relative z-10"
       initial={{ opacity: 0, y: -20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
     >
-      <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+      <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-green-600">
         My Services
       </h2>
       <p className="text-lg text-gray-300 max-w-3xl mx-auto">
@@ -130,13 +134,11 @@ const ServicesSection = () => (
       </p>
     </motion.div>
 
-    {/* Services Grid */}
     <motion.div
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10"
       variants={containerVariants}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      animate="visible"
     >
       {services.map(({ title, description, icon, skills, color }, index) => (
         <motion.div key={index} variants={cardVariants}>
@@ -168,8 +170,7 @@ const ServicesSection = () => (
                         variants={skillItemVariants}
                         custom={i}
                         initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
+                        animate="visible"
                         whileHover={{ x: 5 }}
                       >
                         <span className="text-lg">{skill.icon}</span>
@@ -199,23 +200,21 @@ const ServicesSection = () => (
       ))}
     </motion.div>
 
-    {/* CTA Button */}
     <motion.div
       className="text-center mt-20 relative z-10"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ delay: 0.8 }}
-      viewport={{ once: true }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.3 }}
     >
-      <motion.a
-        href="#contact"
-        className="inline-block px-8 py-3 bg-gradient-to-r from-green-500 to-blue-500 text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+      <motion.button
+        onClick={scrollToServices}
+        className="inline-block px-8 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
         <span className="relative z-10">Get Started With My Services</span>
-        <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-      </motion.a>
+        <span className="absolute inset-0 bg-gradient-to-r from-green-600 to-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+      </motion.button>
     </motion.div>
   </section>
 );
