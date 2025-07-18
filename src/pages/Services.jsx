@@ -18,7 +18,7 @@ const services = [
   {
     title: "Web & Mobile Development",
     description: "Full-stack development for web and mobile apps using modern tech.",
-    icon: <FaLaptopCode />,
+    icon: <FaLaptopCode className="text-green-400" />,  // colored icon
     skills: [
       { name: "React/Next.js", icon: <FaGlobe className="text-blue-400" /> },
       { name: "React Native", icon: <FaMobileAlt className="text-purple-400" /> },
@@ -30,11 +30,11 @@ const services = [
   {
     title: "Digital Marketing",
     description: "Strategies to boost online presence & customer engagement.",
-    icon: <FaBullhorn />,
+    icon: <FaBullhorn className="text-green-400" />,  // updated to green
     skills: [
-      { name: "Social Media Marketing", icon: <FaFacebook className="text-blue-600" /> },
-      { name: "Content Creation", icon: <FaPaintBrush className="text-yellow-400" /> },
-      { name: "Video Marketing", icon: <FaVideo className="text-red-400" /> },
+      { name: "Social Media Marketing", icon: <FaFacebook className="text-green-400" /> },
+      { name: "Content Creation", icon: <FaPaintBrush className="text-green-400" /> },
+      { name: "Video Marketing", icon: <FaVideo className="text-green-400" /> },
       { name: "SEO Optimization", icon: <FaChartLine className="text-green-400" /> }
     ],
     color: "from-blue-400 to-blue-600"
@@ -42,12 +42,12 @@ const services = [
   {
     title: "AI Solutions",
     description: "AI-powered solutions to automate and enhance workflows.",
-    icon: <FaRobot />,
+    icon: <FaRobot className="text-green-400" />,  // updated to green
     skills: [
-      { name: "Chatbot Development", icon: <FaComments className="text-purple-400" /> },
-      { name: "Machine Learning", icon: <FaRobot className="text-blue-400" /> },
+      { name: "Chatbot Development", icon: <FaComments className="text-green-400" /> },
+      { name: "Machine Learning", icon: <FaRobot className="text-green-400" /> },
       { name: "Data Analysis", icon: <FaChartLine className="text-green-400" /> },
-      { name: "Process Automation", icon: <FaLaptopCode className="text-red-400" /> }
+      { name: "Process Automation", icon: <FaLaptopCode className="text-green-400" /> }
     ],
     color: "from-purple-400 to-violet-600"
   }
@@ -149,7 +149,7 @@ const ServicesSection = () => (
               />
               <div className="p-8 flex-1 flex flex-col">
                 <motion.div
-                  className={`w-16 h-16 mb-6 rounded-lg flex items-center justify-center bg-gradient-to-br ${color} text-white text-2xl`}
+                  className={`w-16 h-16 mb-6 rounded-lg flex items-center justify-center bg-gray-900 text-white text-2xl`}
                   whileHover={{ rotate: 5, scale: 1.1 }}
                 >
                   {icon}
