@@ -1,10 +1,7 @@
 import { motion } from "framer-motion";
-// import { Canvas } from "@react-three/fiber";
 import { Canvas, useFrame } from "@react-three/fiber";
-
 import { OrbitControls, Stars, Text3D } from "@react-three/drei";
-import * as THREE from "three";
-import React from "react";
+import React, { useRef, useMemo } from "react";
 import {
   FaDownload,
   FaGithub,
@@ -18,31 +15,22 @@ import {
 
 // 3D Floating Elements
 function FloatingTechElements() {
-  const elements = Array.from({ length: 20 }).map((_, i) => ({
-    id: i,
-    position: [
-      Math.random() * 10 - 5,
-      Math.random() * 10 - 5,
-      Math.random() * 10 - 5
-    ],
-    rotation: [Math.random() * Math.PI, Math.random() * Math.PI, 0],
-    speed: Math.random() * 0.5 + 0.1,
-    scale: Math.random() * 0.5 + 0.5,
-    content: i % 4 === 0 ? "<Code/>" : i % 4 === 1 ? "{Dev}" : i % 4 === 2 ? "</>" : "{}",
-    color: i % 3 === 0 ? "#4ade80" : i % 3 === 1 ? "#60a5fa" : "#a78bfa"
-  }));
+  const elements = useMemo(() =>
+    Array.from({ length: 20 }).map((_, i) => ({
+      id: i,
+      position: [Math.random() * 10 - 5, Math.random() * 10 - 5, Math.random() * 10 - 5],
+      rotation: [Math.random() * Math.PI, Math.random() * Math.PI, 0],
+      speed: Math.random() * 0.5 + 0.1,
+      scale: Math.random() * 0.5 + 0.5,
+      content: i % 4 === 0 ? "<Code/>" : i % 4 === 1 ? "{Dev}" : i % 4 === 2 ? "</>" : "{}",
+      color: i % 3 === 0 ? "#4ade80" : i % 3 === 1 ? "#60a5fa" : "#a78bfa"
+    })), []);
 
-  return (
-    <group>
-      {elements.map((element) => (
-        <FloatingElement key={element.id} {...element} />
-      ))}
-    </group>
-  );
+  return <group>{elements.map(el => <FloatingElement key={el.id} {...el} />)}</group>;
 }
 
 function FloatingElement({ position, rotation, speed, scale, content, color }) {
-  const meshRef = React.useRef();
+  const meshRef = useRef();
 
   useFrame((state, delta) => {
     meshRef.current.rotation.x += delta * speed * 0.2;
@@ -93,7 +81,7 @@ function ThreeDBackground() {
 
 function HeroSection() {
   return (
-    <section className="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-16 lg:px-24 py-12 overflow-hidden relative">
+    <section className="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center pt-28 px-4 sm:px-6 md:px-16 lg:px-24 py-12 overflow-visible relative z-0">
       <ThreeDBackground />
 
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-12 relative z-10">
@@ -104,7 +92,7 @@ function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
           >
-            Business Developer||AI Developer
+            Business Developer || AI Developer
           </motion.p>
 
           <motion.h1
@@ -145,26 +133,56 @@ function HeroSection() {
             </motion.a>
 
             <div className="flex space-x-4 sm:space-x-5">
-              {[FaGithub, FaLinkedin, FaTwitter].map((Icon, index) => (
-                <motion.a
-                  key={index}
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors"
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <Icon size={18} className="sm:w-5 sm:h-5" />
-                </motion.a>
-              ))}
+              <motion.a
+                href="https://github.com/yourgithub"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaGithub size={18} />
+              </motion.a>
+              <motion.a
+                href="https://www.linkedin.com/in/abu-bakar-athar-98b722242"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaLinkedin size={18} />
+              </motion.a>
+              <motion.a
+                href="https://twitter.com/yourtwitter"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaTwitter size={18} />
+              </motion.a>
             </div>
           </motion.div>
         </div>
 
+        {/* Profile Image without icon bubbles */}
         <motion.div
           className="relative w-full lg:w-[42%] flex justify-center mt-10 lg:mt-0"
           initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            rotateX: [0, 5, 0, -5, 0],
+            rotateY: [0, 5, 0, -5, 0],
+            y: [0, -10, 0, 10, 0]
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
         >
           <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80">
             <motion.div
@@ -172,7 +190,12 @@ function HeroSection() {
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300, damping: 10 }}
             >
-              <img src="/my pic.jpg" alt="Abu Bakar" className="w-full h-full object-cover" loading="lazy" />
+              <img
+                src="/my pic.jpg"
+                alt="Abu Bakar"
+                className="w-full h-full object-cover object-top"
+                loading="lazy"
+              />
             </motion.div>
 
             <motion.div
@@ -180,33 +203,11 @@ function HeroSection() {
               animate={{ rotate: 360 }}
               transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
             />
-
-            {[
-              { icon: <FaCode size={14} className="text-green-500" />, position: "top-0 left-0" },
-              { icon: <FaProjectDiagram size={14} className="text-blue-400" />, position: "top-0 right-0" },
-              { icon: <FaClock size={14} className="text-yellow-400" />, position: "bottom-0 left-0" },
-              { icon: <FaDatabase size={14} className="text-purple-400" />, position: "bottom-0 right-0" },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                className={`absolute ${item.position} bg-gray-800 p-2.5 rounded-full shadow-md`}
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 500,
-                  damping: 15,
-                  delay: 0.5 + index * 0.1
-                }}
-                whileHover={{ scale: 1.1 }}
-              >
-                {item.icon}
-              </motion.div>
-            ))}
           </div>
         </motion.div>
       </div>
 
+      {/* Stats */}
       <motion.div
         className="mt-12 sm:mt-16 md:mt-20 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 w-full max-w-4xl px-4 relative z-10"
         initial={{ opacity: 0, y: 20 }}
@@ -214,10 +215,10 @@ function HeroSection() {
         transition={{ duration: 0.5, delay: 0.8 }}
       >
         {[
-          { number: "12+", label: "Years experience", icon: <FaClock size={16} className="text-green-500" /> },
-          { number: "26+", label: "Projects completed", icon: <FaProjectDiagram size={16} className="text-blue-400" /> },
-          { number: "8+", label: "Technologies", icon: <FaCode size={16} className="text-yellow-400" /> },
-          { number: "500+", label: "Code commits", icon: <FaDatabase size={16} className="text-purple-400" /> }
+          { number: "4+", label: "Years experience", icon: <FaClock size={16} className="text-green-500" /> },
+          { number: "10+", label: "Projects completed", icon: <FaProjectDiagram size={16} className="text-blue-400" /> },
+          { number: "5+", label: "Technologies", icon: <FaCode size={16} className="text-yellow-400" /> },
+          { number: "100+", label: "Code commits", icon: <FaDatabase size={16} className="text-purple-400" /> }
         ].map((stat, index) => (
           <div
             key={index}
@@ -232,21 +233,34 @@ function HeroSection() {
         ))}
       </motion.div>
 
-      <motion.div
-        className="hidden md:flex flex-col items-center mt-12 lg:mt-16 relative z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-5 h-8 border-2 border-gray-400 rounded-full flex justify-center"
-        >
-          <div className="w-1 h-2 bg-gray-400 rounded-full mt-1" />
-        </motion.div>
-        <p className="text-gray-400 text-xs mt-2">Scroll Down</p>
-      </motion.div>
+     {/* Scroll Down Animation */}
+<motion.div
+  className="hidden md:flex flex-col items-center mt-12 lg:mt-16 relative z-10"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 1.2 }}
+>
+  <a
+    href="#services"
+    className="cursor-pointer"
+    onClick={(e) => {
+      e.preventDefault();
+      const section = document.getElementById("services");
+      section?.scrollIntoView({ behavior: "smooth" });
+    }}
+  >
+    <motion.div
+      animate={{ y: [0, 8, 0] }}
+      transition={{ duration: 1.5, repeat: Infinity }}
+      className="w-5 h-8 border-2 border-gray-400 rounded-full flex justify-center"
+    >
+      <div className="w-1 h-2 bg-gray-400 rounded-full mt-1" />
+    </motion.div>
+    
+  </a>
+  <p className="text-gray-400 text-xs mt-2 text-center">Scroll Down</p>
+</motion.div>
+
     </section>
   );
 }
