@@ -41,29 +41,15 @@ export default function AboutMe() {
             className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight"
             variants={itemVariant}
           >
-            Strategic <span className="text-green-500">Business Developer</span> |
-            <br className="hidden sm:block" />
-            AI-Driven Project Manager & Event Organizer
+            AI Business Developer &<br className="hidden sm:block" />
+            Tech Event Organizer
           </motion.h1>
           
           <motion.p
-            className="text-gray-300 mt-4 text-base sm:text-lg"
+            className="text-gray-300 mt-4 mb-6 text-base sm:text-lg"
             variants={itemVariant}
           >
-            I’m a business-minded professional helping companies scale through
-            development strategies, intelligent project management, and flawless
-            event execution. I ensure every task is driven by purpose and aligned
-            with success metrics.
-          </motion.p>
-
-          <motion.p
-            className="text-gray-300 mt-3 mb-6 text-base sm:text-lg"
-            variants={itemVariant}
-          >
-            My deep passion for Artificial Intelligence empowers me to approach
-            challenges with a future-ready mindset. With strong patience,
-            communication skills, and a detail-oriented nature, I take pride in
-            turning complex ideas into real-world success stories.
+            I’m a Business Developer focused on the AI field, helping startups and companies grow through smart strategies. I also organize tech education events to promote awareness and innovation. My passion for AI drives me to connect ideas with real business solutions.
           </motion.p>
 
           <motion.div
@@ -71,10 +57,10 @@ export default function AboutMe() {
             variants={containerVariant}
           >
             {[
-              "Business Growth Strategy",
-              "Project Lifecycle Management",
-              "AI Enthusiast & Problem Solver",
-              "Event Planning & Coordination",
+              "AI Business Development",
+              "Project & Strategy Planning",
+              "Tech Education Events",
+              "Passionate about AI Innovation",
             ].map((service, i) => (
               <motion.div
                 key={i}
