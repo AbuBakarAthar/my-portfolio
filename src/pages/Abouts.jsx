@@ -34,15 +34,14 @@ export default function AboutMe() {
             className="text-sm sm:text-base font-medium text-gray-400 mb-3"
             variants={itemVariant}
           >
-            About me
+            About Me
           </motion.h2>
           
           <motion.h1
             className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight"
             variants={itemVariant}
           >
-            AI Business Developer &<br className="hidden sm:block" />
-            Tech Event Organizer
+            AI Business Developer &<br className="hidden sm:block" /> <span className="text-green-500">Tech Event Organizer</span>
           </motion.h1>
           
           <motion.p
