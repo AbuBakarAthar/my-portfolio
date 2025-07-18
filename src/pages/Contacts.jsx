@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube, FaWhatsapp, FaGithub, FaTiktok, FaBehance } from "react-icons/fa";
 
 const socialLinks = [
-  { icon: FaFacebook, color: "hover:text-blue-500", name: "Facebook"  },
-  { icon: FaInstagram, color: "hover:text-pink-500", name: "Instagram" },
-  { icon: FaLinkedin, color: "hover:text-blue-400", name: "LinkedIn" },
-  { icon: FaYoutube, color: "hover:text-red-500", name: "YouTube" },
-  { icon: FaWhatsapp, color: "hover:text-green-500", name: "WhatsApp" },
-  { icon: FaGithub, color: "hover:text-gray-300", name: "GitHub" },
-  { icon: FaTiktok, color: "hover:text-black hover:bg-gradient-to-r hover:from-pink-500 hover:to-blue-500", name: "TikTok" },
-  { icon: FaBehance, color: "hover:text-blue-600", name: "Behance" },
+  { icon: FaFacebook, color: "hover:text-blue-600", name: "Facebook", url: "https://www.facebook.com" },
+  { icon: FaInstagram, color: "hover:text-pink-500", name: "Instagram", url: "https://www.instagram.com" },
+  { icon: FaLinkedin, color: "hover:text-blue-400", name: "LinkedIn", url: "https://www.linkedin.com" },
+  { icon: FaYoutube, color: "hover:text-red-500", name: "YouTube", url: "https://www.youtube.com" },
+  { icon: FaWhatsapp, color: "hover:text-green-500", name: "WhatsApp", url: "https://wa.me/" },
+  { icon: FaGithub, color: "hover:text-gray-300", name: "GitHub", url: "https://github.com" },
+  { icon: FaTiktok, color: "hover:text-black hover:bg-gradient-to-r hover:from-pink-500 hover:to-blue-500", name: "TikTok", url: "https://www.tiktok.com" },
+  { icon: FaBehance, color: "hover:text-blue-600", name: "Behance", url: "https://www.behance.net" },
 ];
 
 function Contacts() {
@@ -99,7 +99,9 @@ function Contacts() {
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={index}
-                    href="#"
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`text-gray-400 text-2xl p-2 rounded-full transition-colors ${social.color}`}
                     whileHover={{ y: -3 }}
                     whileTap={{ scale: 0.9 }}
