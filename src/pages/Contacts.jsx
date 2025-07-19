@@ -2,14 +2,13 @@ import { motion } from "framer-motion";
 import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube, FaWhatsapp, FaGithub, FaTiktok, FaBehance } from "react-icons/fa";
 
 const socialLinks = [
-  { icon: FaFacebook, color: "hover:text-blue-600", name: "Facebook", url: "https://facebook.com/softsinc" },
-  { icon: FaInstagram, color: "hover:text-pink-500", name: "Instagram", url: "https://instagram.com/softsinc" },
-  { icon: FaLinkedin, color: "hover:text-blue-400", name: "LinkedIn", url: "https://linkedin.com/company/softsinc" },
-  { icon: FaYoutube, color: "hover:text-red-500", name: "YouTube", url: "https://youtube.com/@softsinc" },
-  { icon: FaWhatsapp, color: "hover:text-green-500", name: "WhatsApp", url: "https://wa.me/923001234567" },
-  { icon: FaGithub, color: "hover:text-gray-300", name: "GitHub", url: "https://github.com/softsinc" },
-  { icon: FaTiktok, color: "hover:text-black hover:bg-gradient-to-r hover:from-pink-500 hover:to-blue-500", name: "TikTok", url: "https://tiktok.com/@softsinc" },
-  { icon: FaBehance, color: "hover:text-blue-600", name: "Behance", url: "https://behance.net/softsinc" },
+  { icon: FaFacebook, color: "hover:text-blue-600", name: "Facebook", url: "https://www.facebook.com/bakar.athar" },
+  { icon: FaInstagram, color: "hover:text-pink-500", name: "Instagram", url: "https://www.instagram.com/abu5873bakar?igsh=MWdja3YyNmxvMHc4bw==" },
+  { icon: FaLinkedin, color: "hover:text-blue-400", name: "LinkedIn", url: "https://www.linkedin.com/in/abu-bakar-athar-98b722242?" },
+  { icon: FaYoutube, color: "hover:text-red-500", name: "YouTube", url: "https://youtube.com/@softsincs" },
+  { icon: FaWhatsapp, color: "hover:text-green-500", name: "WhatsApp", url: "https://wa.me/923098506598" },
+  { icon: FaGithub, color: "hover:text-gray-300", name: "GitHub", url: "https://github.com/AbuBakarAthar" },
+  
 ];
 
 function Contacts() {
