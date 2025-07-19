@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube, FaWhatsapp, FaGithub, FaTiktok, FaBehance } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube, FaWhatsapp, FaGithub } from "react-icons/fa";
 
 const socialLinks = [
   { icon: FaFacebook, color: "hover:text-blue-600", name: "Facebook", url: "https://www.facebook.com/bakar.athar" },
@@ -7,8 +7,7 @@ const socialLinks = [
   { icon: FaLinkedin, color: "hover:text-blue-400", name: "LinkedIn", url: "https://www.linkedin.com/in/abu-bakar-athar-98b722242?" },
   { icon: FaYoutube, color: "hover:text-red-500", name: "YouTube", url: "https://youtube.com/@softsincs" },
   { icon: FaWhatsapp, color: "hover:text-green-500", name: "WhatsApp", url: "https://wa.me/923098506598" },
-  { icon: FaGithub, color: "hover:text-gray-300", name: "GitHub", url: "https://github.com/AbuBakarAthar" },
-  
+  { icon: FaGithub, color: "hover:text-gray-300", name: "GitHub", url: "https://github.com/AbuBakarAthar" }
 ];
 
 function Contacts() {
